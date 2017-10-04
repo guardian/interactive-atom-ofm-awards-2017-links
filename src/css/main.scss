@@ -18,6 +18,8 @@
   line-height: 34px;
   padding-top: 2px;
   .link {
+    display: inline-block;
+    position: static;
     color: #951C55;
     font-family: 'Guardian Text Sans Web', 'Guardian Sans Text', sans-serif;
     font-size: 16px;
@@ -35,8 +37,6 @@
       background-size: 16px 16px;
       background-position: 8px 8px;
       background-repeat: no-repeat;
-      position: relative;
-      bottom: 1px;
     }
     &.next {
       float: right;
@@ -46,6 +46,9 @@
       }
     }
     &.prev {
+      @include mq($until: tablet) {
+        font-size: 0;
+      }
       float: left;
       &:before {
         display: inline-block;
@@ -66,6 +69,12 @@
 
   &.top {
     background-color: #EFEFEC;
+    padding: 3px 10px 9px;
+    @include mq(desktop) {
+      .content__main-column {
+        padding: 0 0 0 20px;
+      }
+    }
   }
   &.bottom {
     border-top: 1px solid #EAEAEA;
@@ -73,8 +82,9 @@
     .gs-container,
     .content__main-column {
       padding: 0;
-      width: auto;
+      width: 100%;
       max-width: none;
+      margin: 0;
     }
   }
 }
