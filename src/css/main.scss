@@ -2,7 +2,7 @@
 @import "fonts";
 
 // Uncomment for embeds
-//@import "embed";
+@import "embed";
 
 // Uncomment for full screen (including immersive article main media)
 //@import "fullscreen";
@@ -20,7 +20,7 @@
   .link {
     display: inline-block;
     position: static;
-    color: #951C55;
+    color: #951C55 !important;
     font-family: 'Guardian Text Sans Web', 'Guardian Sans Text', sans-serif;
     font-size: 16px;
     &:before,
@@ -69,11 +69,10 @@
 
   &.top {
     background-color: #EFEFEC;
-    padding: 3px 10px 9px;
-    @include mq(desktop) {
-      .content__main-column {
-        padding: 0 0 0 20px;
-      }
+    padding: 3px 0 9px;
+    .ios &,
+    .android & {
+      padding: 3px 11px 48px;
     }
   }
   &.bottom {
@@ -85,6 +84,11 @@
       width: 100%;
       max-width: none;
       margin: 0;
+    }
+    .ios &,
+    .android & {
+      padding: 6px 0 24px;
+      margin-top: 36px;
     }
   }
 }
