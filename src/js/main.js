@@ -2,13 +2,14 @@ var el = document.createElement('script');
 el.src = '<%= path %>/app.js';
 document.body.appendChild(el);
 
-console.log('this is new 15:59');
+console.log('this is new 16:12');
 
 
 (function(){
 
 
   var doc = parent.document;
+  var win = parent.window;
 
   // clone css
   var style = document.querySelector('style:last-of-type');
@@ -55,10 +56,13 @@ console.log('this is new 15:59');
   oNav.parentElement.removeChild(oNav);
 
   function updateContentWith(n, nextPrevAwards) {
+
+    var p = (isApp() ? 'x-gu://item/mobile.guardianapis.com/uk/items/' : '/');
+
     n.querySelector('.next').innerText = nextPrevAwards[1][0];
-    n.querySelector('.next').setAttribute('href', '/'+nextPrevAwards[1][1][0]);
+    n.querySelector('.next').setAttribute('href', p+nextPrevAwards[1][1][0]);
     n.querySelector('.prev').innerText = nextPrevAwards[0][0];
-    n.querySelector('.prev').setAttribute('href', '/'+nextPrevAwards[0][1][0]);
+    n.querySelector('.prev').setAttribute('href', p+nextPrevAwards[0][1][0]);
     return n;
   }
 
@@ -66,6 +70,10 @@ console.log('this is new 15:59');
     var clone = e.cloneNode(true);
     clone.classList.add(c);
     return clone;
+  }
+
+  function isApp() {
+    return (parent.window.location.protocol === 'file:')
   }
 
   function findNextPrev() {
@@ -89,12 +97,7 @@ console.log('this is new 15:59');
       ['Editor’s Award', ['lifeandstyle/2017/oct/15/ofm-awards-2017-editors-award-aa-gill']]
     ];
 
-    var pageId;
-    if (parent.window.location.protocol === 'file:') {
-      pageId = parent.window.GU.opts.pageId;
-    } else {
-      pageId = parent.window.guardian.config.page.pageId;
-    }
+    var pageId = (isApp() ? win.GU.opts.pageId : win.guardian.config.page.pageId)
 
     var thisAward = false;
     for (var i = 0; i < allAwards.length; i++) {
