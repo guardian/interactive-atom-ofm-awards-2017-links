@@ -2,8 +2,11 @@ var el = document.createElement('script');
 el.src = '<%= path %>/app.js';
 document.body.appendChild(el);
 
+console.log('this is new 15:59');
+
 
 (function(){
+
 
   var doc = parent.document;
 
@@ -86,10 +89,11 @@ document.body.appendChild(el);
       ['Editor’s Award', ['lifeandstyle/2017/oct/15/ofm-awards-2017-editors-award-aa-gill']]
     ];
 
-    if (window.location.protocol === 'file:') {
-      var pageId = parent.window.GU.opts.pageId;
+    var pageId;
+    if (parent.window.location.protocol === 'file:') {
+      pageId = parent.window.GU.opts.pageId;
     } else {
-      var pageId = parent.window.guardian.config.page.pageId;
+      pageId = parent.window.guardian.config.page.pageId;
     }
 
     var thisAward = false;
@@ -99,7 +103,7 @@ document.body.appendChild(el);
 
       for (var j = 0; j < awardLinks.length; j++) {
         var link = awardLinks[j];
-        if (pageId==link) {
+        if (pageId===link) {
           var prevAward = allAwards[(i==0 ? allAwards.length-1 : i-1)]
           var nextAward = allAwards[(i==allAwards.length-1 ? 0 : i+1)]
           return [prevAward, nextAward];
