@@ -58,6 +58,7 @@ console.log('this is new 16:12');
   function updateContentWith(n, nextPrevAwards) {
 
     var p = (isApp() ? 'x-gu://item/mobile.guardianapis.com/uk/items/' : '/');
+    // var p = (isApp() ? 'x-gu://item/mobile-preview.guardianapis.com/uk/items/' : '/');
 
     n.querySelector('.next').innerText = nextPrevAwards[1][0];
     n.querySelector('.next').setAttribute('href', p+nextPrevAwards[1][1][0]);
@@ -78,9 +79,9 @@ console.log('this is new 16:12');
 
   function findNextPrev() {
     var allAwards = [
-      ['Best restaurant', ['lifeandstyle/2017/oct/15/ofm-awards-2017-best-restaurant-pidgin', 'lifeandstyle/2017/oct/15/ofm-awards-2017-best-restaurant-runners-up']],
+      ['Best restaurant', ['lifeandstyle/2017/oct/15/ofm-awards-2017-best-restaurant-pidgin-east-london', 'lifeandstyle/2017/oct/15/ofm-awards-2017-best-restaurant-runners-up']],
       ['Best cheap eats', ['lifeandstyle/2017/oct/15/ofm-awards-2017-best-cheap-eats-yard-sale-pizza-london', 'lifeandstyle/2017/oct/15/ofm-awards-2017-best-cheap-eats-runners-up']],
-      ['Best Sunday lunch', ['lifeandstyle/2017/oct/15/ofm-awards-2017-best-sunday-lunch-a-rule-of-tum-bookshop', 'lifeandstyle/2017/oct/15/ofm-awards-2017-best-sunday-lunch-the-runners-up']],
+      ['Best Sunday lunch', ['lifeandstyle/2017/oct/15/ofm-awards-2017-best-sunday-lunch-a-rule-of-tum-bookshop-hereford', 'lifeandstyle/2017/oct/15/ofm-awards-2017-best-sunday-lunch-the-runners-up']],
       ['Best ethical food project', ['lifeandstyle/2017/oct/15/cook-for-syria-ofm-awards-2017-best-ethical-project', 'lifeandstyle/2017/oct/15/ofm-awards-2017-best-ethical-project-runners-up']],
       ['Best food personality', ['lifeandstyle/2017/oct/15/ofm-awards-2017-best-food-personality-rick-stein']],
       ['Best place to drink', ['lifeandstyle/2017/oct/15/2017-best-place-to-drink-crown-hastings-ofm-awards', 'lifeandstyle/2017/oct/15/ofm-awards-2017-best-places-to-drink-runners-up-bars-pubs-cocktails']],
